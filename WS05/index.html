@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workshop 5 – Responsive Design</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      line-height: 1.5;
+    }
+
+    section {
+      margin-bottom: 30px;
+    }
+
+    /* Task 1: Responsive layout */
+    .responsive-container {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .column {
+      flex: 1;
+      padding: 10px;
+      background-color: #e6ecff;
+      border: 1px solid #c3cff5;
+    }
+
+    @media (max-width: 600px) {
+      .column {
+        flex: 100%;
+      }
+    }
+
+    /* Task 2: Responsive image */
+    .responsive-image {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* Task 3: Media queries */
+    .media-query-box {
+      padding: 20px;
+      text-align: center;
+    }
+
+    @media (max-width: 600px) {
+      .media-query-box {
+        background-color: lightcoral;
+      }
+    }
+
+    @media (min-width: 601px) {
+      .media-query-box {
+        background-color: lightblue;
+      }
+    }
+
+    /* Task 4: Responsive navigation bar */
+    .responsive-nav .nav-list {
+      display: flex;
+      list-style: none;
+      gap: 20px;
+      padding: 0;
+    }
+
+    .responsive-nav .menu-toggle {
+      display: none;
+    }
+
+    @media (max-width: 600px) {
+      .responsive-nav .nav-list {
+        display: none;
+      }
+
+      .responsive-nav .menu-toggle {
+        display: block;
+      }
+
+      .responsive-nav .nav-list.open {
+        display: block;
+      }
+    }
+  </style>
+</head>
+<body>
+  <h1>Workshop 5: Responsive Design</h1>
+  <p><a href="../">Back to all workshops</a></p>
+
+  <section>
+    <h2>Task 4: Responsive Navigation Bar</h2>
+    <nav class="responsive-nav">
+      <button class="menu-toggle" aria-expanded="false">☰ Menu</button>
+      <ul class="nav-list">
+        <li><a href="#task1">Home</a></li>
+        <li><a href="#task2">About</a></li>
+        <li><a href="#task3">Contact</a></li>
+      </ul>
+    </nav>
+  </section>
+
+  <section id="task1">
+    <h2>Task 1: Responsive Layout</h2>
+    <div class="responsive-container">
+      <div class="column">Column 1</div>
+      <div class="column">Column 2</div>
+    </div>
+  </section>
+
+  <section id="task2">
+    <h2>Task 2: Responsive Image</h2>
+    <img src="../WS03/images/image.jpg" alt="Responsive Image" class="responsive-image">
+  </section>
+
+  <section id="task3">
+    <h2>Task 3: Media Queries</h2>
+    <div class="media-query-box">Resize the window to see the effect</div>
+  </section>
+
+  <script>
+    const toggle = document.querySelector('.menu-toggle');
+    const list = document.querySelector('.nav-list');
+    toggle.addEventListener('click', function () {
+      const open = list.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open);
+    });
+  </script>
+</body>
+</html>
